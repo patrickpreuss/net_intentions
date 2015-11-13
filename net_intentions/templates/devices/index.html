@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% block content %}
+{% if device_list %}
+<h2>Devices</h2>
+<table class="table table-striped">
+ <th>ID</th>
+ <th>Devices</th>
+ <th>Management IP</th>
+ <th>Region</th>
+ <th>Role</th>
+ <th>Platform</th>
+{%  for device in device_list %}
+ <tr>
+  <td>{{ device.id }}</td>
+  <td>{{ device.hostname }}</td>
+  <td>{{ device.management_ip }}</td>
+  <td>{{ device.region }}</td>
+  <td>{{ device.device_role }}</td>
+  <td>{{ device.device_platform }}</td>
+ </tr>
+{%  endfor %}
+</table>
+{% endif %}
+{% if region_list %}
+<h2>Regions</h2>
+<table class="table table-striped">
+ <th>ID</th>
+ <th>Region</th>
+{%  for region in region_list %}
+ <tr>
+  <td>{{ region.id }}</td>
+  <td>{{ region.region }}</td>
+ </tr>
+{%  endfor %}
+</table>
+{% endif %}
+{% if device_platform_list %}
+<h2>Device Platform</h2>
+<table class="table table-striped">
+ <th>ID</th>
+ <th>Platform</th>
+{%  for platform in device_platform_list %}
+ <tr>
+  <td>{{ platform.id }}</td>
+  <td>{{ platform.platform }}</td>
+ </tr>
+{%  endfor %}
+</table>
+{% endif %}
+{% if device_role_list %}
+<h2>Device Role</h2>
+<table class="table table-striped">
+ <th>ID</th>
+ <th>Role</th>
+{%  for role in device_role_list %}
+ <tr>
+  <td>{{ role.id }}</td>
+  <td>{{ role.role }}</td>
+ </tr>
+{%  endfor %}
+</table>
+{% endif %}
+{% endblock %}

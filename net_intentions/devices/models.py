@@ -29,7 +29,8 @@ class Region(models.Model):
 class Device(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     hostname = models.CharField(max_length=255, unique=True)
-    management_ip = models.GenericIPAddressField(unpack_ipv4=False)
+    management_ip = models.GenericIPAddressField(unpack_ipv4=False,
+                                                 unique=True)
     device_platform = models.ForeignKey('DevicePlatform')
     device_role = models.ForeignKey('DeviceRole')
     region = models.ForeignKey('Region')
