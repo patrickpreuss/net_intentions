@@ -13,7 +13,7 @@
 {%  for device in device_list %}
  <tr>
   <td>{{ device.id }}</td>
-  <td>{{ device.hostname }}</td>
+  <td>{{ device.name }}</td>
   <td>{{ device.management_ip }}</td>
   <td>{{ device.region }}</td>
   <td>{{ device.device_role }}</td>
@@ -30,7 +30,7 @@
 {%  for region in region_list %}
  <tr>
   <td>{{ region.id }}</td>
-  <td>{{ region.region }}</td>
+  <td>{{ region.name }}</td>
  </tr>
 {%  endfor %}
 </table>
@@ -43,7 +43,7 @@
 {%  for platform in device_platform_list %}
  <tr>
   <td>{{ platform.id }}</td>
-  <td>{{ platform.platform }}</td>
+  <td>{{ platform.name }}</td>
  </tr>
 {%  endfor %}
 </table>
@@ -56,7 +56,7 @@
 {%  for role in device_role_list %}
  <tr>
   <td>{{ role.id }}</td>
-  <td>{{ role.role }}</td>
+  <td>{{ role.name }}</td>
  </tr>
 {%  endfor %}
 </table>

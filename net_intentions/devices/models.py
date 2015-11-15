@@ -4,31 +4,31 @@ from django.db import models
 
 class DeviceRole(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
-    role = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        return self.role
+        return self.name
 
 
 class DevicePlatform(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
-    platform = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        return self.platform
+        return self.name
 
 
 class Region(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
-    region = models.CharField(max_length=6, unique=True)
+    name = models.CharField(max_length=6, unique=True)
 
     def __str__(self):
-        return self.region
+        return self.name
 
 
 class Device(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
-    hostname = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, unique=True)
     management_ip = models.GenericIPAddressField(unpack_ipv4=False,
                                                  unique=True)
     device_platform = models.ForeignKey('DevicePlatform')
@@ -36,4 +36,4 @@ class Device(models.Model):
     region = models.ForeignKey('Region')
 
     def __str__(self):
-        return self.hostname
+        return self.name
