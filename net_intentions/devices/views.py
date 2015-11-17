@@ -4,15 +4,15 @@ from django.template import RequestContext
 from django.template import loader
 
 from .models import Region
-from .models import DeviceRole
-from .models import DevicePlatform
+from .models import Role
+from .models import Platform
 from .models import Device
 # Create your views here.
 
 def index(request):
     region_list = Region.objects.all()
-    device_role_list = DeviceRole.objects.all()
-    device_platform_list = DevicePlatform.objects.all()
+    device_role_list = Role.objects.all()
+    device_platform_list = Platform.objects.all()
     device_list = Device.objects.all()
     template = loader.get_template('devices/index.html')
     context = RequestContext(request, {
